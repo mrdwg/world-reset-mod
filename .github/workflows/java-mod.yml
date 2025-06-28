@@ -1,0 +1,29 @@
+name: Java Mod CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build Mod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build with Gradle
+        run: ./gradlew build --no-daemon
+
+      - name: Upload mod JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: worldresetmod-jar
+          path: build/libs/worldresetmod-1.0.0.jar
