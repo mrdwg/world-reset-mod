@@ -1,0 +1,21 @@
+
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '5.1.74'
+}
+
+version = '1.0.0'
+group = 'com.example.worldresetmod'
+archivesBaseName = 'worldresetmod'
+
+minecraft {
+    mappings channel: 'official', version: '1.18.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.18.2-40.2.10'
+}
